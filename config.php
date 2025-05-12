@@ -10,6 +10,7 @@ $CFG->dbhost    = 'dpg-d0go2pbuibrs73fq44o0-a';
 $CFG->dbname    = 'moodle_7g1n';
 $CFG->dbuser    = 'moodle_7g1n_user';
 $CFG->dbpass    = 'u4u7dVeBYujzLAy9hmtTO0Yiq8Y7jFfP';
+$CFG->sslproxy = true;
 $CFG->prefix    = 'mdl_';
 $CFG->dboptions = array (
   'dbpersist' => 0,
