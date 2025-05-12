@@ -27,6 +27,10 @@ COPY . /var/www/html/
 # Fix file permissions
 RUN chown -R www-data:www-data /var/www/html
 
+# Create moodledata directory with proper permissions
+RUN mkdir -p /tmp/moodledata && chmod -R 777 /tmp/moodledata
+
+
 # Expose the default Apache port
 EXPOSE 80
 
