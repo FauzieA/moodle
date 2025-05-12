@@ -3,3 +3,4 @@
 **.js.map -diff
 **-min.js -diff
 **.min.js -diff
+*.zip filter=lfs diff=lfs merge=lfs -text
