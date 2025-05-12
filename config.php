@@ -19,7 +19,7 @@ $CFG->dboptions = array (
 );
 
 $CFG->wwwroot   = 'https://moodle-site.onrender.com';
-$CFG->dataroot  = '/tmp/moodledata';
+$CFG->dataroot  = '/var/www/moodledata';  
 $CFG->dirroot   = '/opt/render/project/src';
 $CFG->admin     = 'admin';
 
