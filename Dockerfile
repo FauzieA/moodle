@@ -5,7 +5,7 @@ FROM php:7.4-apache
 RUN apt-get update && apt-get install -y libpng-dev libjpeg-dev libfreetype6-dev libxml2-dev libzip-dev unzip git
 
 # Enable Apache modules and PHP extensions needed for Moodle
-RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/freetype2 --with-jpeg-dir=/usr/include
+RUN docker-php-ext-configure gd --with-freetype --with-jpeg
 RUN docker-php-ext-install gd zip pdo pdo_mysql
 
 # Enable mod_rewrite for Apache
