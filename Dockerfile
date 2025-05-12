@@ -8,10 +8,12 @@ RUN apt-get update && apt-get install -y \
     libjpeg-dev \
     libfreetype6-dev \
     libzip-dev \
+    libicu-dev \
     unzip \
     git \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
-    && docker-php-ext-install gd zip pdo pdo_pgsql pgsql
+    && docker-php-ext-install gd zip intl pdo pdo_pgsql pgsql
+
 
 # Enable Apache mod_rewrite (required by Moodle)
 RUN a2enmod rewrite
@@ -27,3 +29,7 @@ RUN chown -R www-data:www-data /var/www/html
 
 # Expose the default Apache port
 EXPOSE 80
+
+# Set custom PHP configuration values
+RUN echo "max_input_vars = 5000" > /usr/local/etc/php/conf.d/custom.ini
+
