@@ -35,5 +35,9 @@ RUN mkdir -p /var/www/moodledata && chown -R www-data:www-data /var/www/moodleda
 EXPOSE 80
 
 # Set custom PHP configuration values
-RUN echo "max_input_vars = 5000" > /usr/local/etc/php/conf.d/custom.ini
+# Set custom PHP configuration values
+RUN echo "max_input_vars = 5000" > /usr/local/etc/php/conf.d/custom.ini && \
+    echo "upload_max_filesize = 20M" >> /usr/local/etc/php/conf.d/custom.ini && \
+    echo "post_max_size = 20M" >> /usr/local/etc/php/conf.d/custom.ini
+
 
