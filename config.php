@@ -33,7 +33,7 @@ $CFG->debugdisplay = 1;
 
 define('WP_DEBUG', true);
 define('WP_DEBUG_LOG', true);
-define('WP_DEBUG_DISPLAY', false); // Keeps errors from showing on page
+define('WP_DEBUG_DISPLAY', true); // Keeps errors from showing on page
 
 require_once(__DIR__ . '/lib/setup.php');
 
