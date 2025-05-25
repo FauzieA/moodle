@@ -36,3 +36,5 @@ $CFG->debug = (E_ALL | E_STRICT);
 $CFG->debugdisplay = 1;
 
 require_once(__DIR__ . '/lib/setup.php');
+$CFG->auth = 'manual,email';
+
