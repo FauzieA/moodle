@@ -2,16 +2,21 @@
 require_once('config.php');
 require_once($CFG->libdir.'/moodlelib.php');
 
-$user = $DB->get_record('user', ['username' => 'fauzie']);
+global $DB;
+
+$username = 'fauzie'; // change if needed
+$newpassword = 'NewPassword123!';
+
+$user = $DB->get_record('user', ['username' => $username]);
 
 if (!$user) {
-    die('User not found.');
+    echo "User not found.";
+    exit;
 }
 
-$newpassword = 'NewPassword123!'; // Set your new password here
+echo "Resetting password for user: {$user->username} (ID: {$user->id})<br>";
 
-if (update_internal_user_password($user, $newpassword)) {
-    echo "Password successfully reset to: $newpassword";
-} else {
-    echo "Failed to reset password.";
-}
+$hashed = hash_internal_user_password($newpassword);
+$DB->set_field('user', 'password', $hashed, ['id' => $user->id]);
+
+echo "Password has been reset to: $newpassword";
